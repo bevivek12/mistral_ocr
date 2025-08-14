@@ -90,7 +90,7 @@ if st.button("Process"):
                 st.session_state["ocr_result"].append(result_text)
                 st.session_state["preview_src"].append(preview_src)
 
-# 5. Display Preview and OCR Results if available
+
 if st.session_state["ocr_result"]:
     for idx, result in enumerate(st.session_state["ocr_result"]):
         col1, col2 = st.columns(2)
