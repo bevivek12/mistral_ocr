@@ -13,7 +13,7 @@ with st.expander("Expand Me"):
     This application allows you to extract information from pdf/image based on Mistral OCR.
     """)
 
-# 1. API Key Input
+
 api_key = st.text_input("Enter your Mistral API Key", type="password")
 if not api_key:
     st.info("Please enter your API key to continue.")
@@ -41,7 +41,7 @@ if source_type == "URL":
 else:
     uploaded_files = st.file_uploader("Upload one or more files", type=["pdf", "jpg", "jpeg", "png"], accept_multiple_files=True)
 
-# 4. Process Button & OCR Handling
+
 if st.button("Process"):
     if source_type == "URL" and not input_url.strip():
         st.error("Please enter at least one valid URL.")
@@ -119,5 +119,5 @@ if st.session_state["ocr_result"]:
             create_download_link(result, "text/plain", f"Output_{idx+1}.txt") # plain text output
             create_download_link(result, "text/markdown", f"Output_{idx+1}.md") # markdown output
 
-            # To preview results
+            
             st.write(st.session_state["ocr_result"])
